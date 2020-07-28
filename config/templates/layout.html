@@ -44,7 +44,15 @@
 					<div class="sprite_camera_icon"><a href="{% url 'post:post_new' %}"></a></div>
                 	<div class="sprite_compass_icon"><a href="#"></a></div>
                 	<div class="sprite_heart_icon_outline"><a href="follow.html"></a></div>
-					<div class="sprite_user_icon_outline"><a herf="#"></a></div>
+					{% if user.is_authenticated %}
+                
+                <div class="sprite_user_icon_outline"><a href="{% url 'post:my_post_list' user.username %}"></a></div>
+                
+                {% else %}
+                
+                <div class="sprite_user_icon_outline"><a href="{% url 'accounts:login' %}"></a></div>
+                
+                {% endif %}
 				</div>
 				
 			</section>
